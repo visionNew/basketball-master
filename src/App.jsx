@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { splitData, formatDataMatrix } from "./utils/utils";
 import "./App.css";
+import DataTable from "./components/DataTable";
 
 function App() {
   const [data, setData] = useState([]);
@@ -34,7 +35,8 @@ function App() {
       <div className="App">
         <h1>Basketball Statistic</h1>
         <input type="file" onChange={handleFileUpload} />
-        {data}
+
+        <DataTable data={data} />
       </div>
   );
 }
