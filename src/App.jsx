@@ -1,3 +1,4 @@
+import { splitData, formatDataMatrix, sanitizeArray } from './utils/utils'
 import "./App.css";
 
 function App() {
@@ -8,15 +9,10 @@ function App() {
 
     reader.readAsText(file);
     reader.onload = function () {
-      const dataArr = reader.result.split("\r\n");
-      const dataMatrix = dataArr
-        .filter((row) => row.trim().length !== 0)
-        .map((row) => row.split(","));
-      const sanitizedArray = dataMatrix.map((row) => {
-
-        return row.map((cell) => cell.trim());
-      });
-      return sanitizedArray;
+      const dataArr = splitData(reader.result);
+      const dataMatrix = formatDataMatrix(dataArr);
+      const sanitizedArray = sanitizeArray(dataMatrix);
+      console.log(sanitizedArray);
     };
   }
 
