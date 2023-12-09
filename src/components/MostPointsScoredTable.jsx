@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
-function DataTable({ data }) {
+function MostPointsScoredTable({data}) {
     return (
         <>
-            <h2>General Statistic</h2>
+            <h2>Most Points Scored</h2>
+            <p>Single Game</p>
 
             <div className="card">
                 <table>
-                    <thead >
+                    <thead>
                         <tr>
+                            <th>Placement</th>
                             <th>Player Name</th>
                             <th>Team</th>
                             <th>Time Played(s)</th>
@@ -18,6 +20,7 @@ function DataTable({ data }) {
                         {data.map((row, index) => {
                             return (
                                 <tr key={index}>
+                                    <td>{index + 1}.</td>
                                     <td>{row[0]}</td>
                                     <td>{row[1]}</td>
                                     <td>{row[2]}</td>
@@ -32,4 +35,4 @@ function DataTable({ data }) {
     );
 }
 
-export default DataTable;
+export default MostPointsScoredTable;

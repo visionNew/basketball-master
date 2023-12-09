@@ -1,33 +1,35 @@
 import { useState } from "react";
-import { splitData, formatDataMatrix } from "./utils/utils";
+import { splitData, formatDataMatrix, findInvalidRows } from "./utils/utils";
 import "./App.css";
 import DataTable from "./components/DataTable";
+import MostPointsScoredByTeamTable from "./components/MostPointsScoredByTeamTable";
+import MostPointsScoredTable from './components/MostPointsScoredTable';
+import MostPointsScoredByTimePlayedTable from './components/MostPointsScoredByTimePlayedTable';
+import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
 
 function App() {
   const [data, setData] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   function handleFileUpload(e) {
     e.preventDefault();
     const file = e.target.files[0];
     const reader = new FileReader();
-    const errors = [];
 
     reader.readAsText(file);
+
     reader.onload = function () {
       const dataArr = splitData(reader.result);
       const dataMatrix = formatDataMatrix(dataArr);
+      const newErrors = findInvalidRows(dataMatrix);
 
-      dataMatrix.forEach((row, index) => {
-        if (row.length !== 4) {
-          errors.push(index + 1);
-        }
-      });
-
-      if (errors.length) {
-        errors.forEach((errors) => console.error(`Data on row ${errors} is invalid`));
+      if (newErrors.length > 0) {
+        setData([]);
+        setErrors(newErrors);
+      } else {
+        setErrors([]);
+        setData(dataMatrix);
       }
-
-      setData(dataMatrix);
     };
   }
     
@@ -35,8 +37,15 @@ function App() {
       <div className="App">
         <h1>Basketball Statistic</h1>
         <input type="file" onChange={handleFileUpload} />
-
-        <DataTable data={data} />
+        {!!errors.length && <ErrorDisplay errors={errors} />}
+        {!!data.length && (
+          <>
+            <DataTable data={data} />
+            <MostPointsScoredTable data={data} />
+            <MostPointsScoredByTimePlayedTable data={data} />
+            <MostPointsScoredByTeamTable data={data} />
+          </>
+        )}
       </div>
   );
 }
