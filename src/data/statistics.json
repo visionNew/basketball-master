@@ -1,0 +1,12 @@
+[
+    {"id": 1, "name": "John Doe", "team": "Chicago Bulls", "minutes_played": 300, "points_scored": 20},
+    {"id": 2, "name": "Jane Smith", "team": "Los Angeles Lakers", "minutes_played": 250, "points_scored": 15},
+    {"id": 3, "name": "Michael Johnson", "team": "Boston Celtics", "minutes_played": 280, "points_scored": 18},
+    {"id": 4, "name": "Emily Brown", "team": "Golden State Warriors", "minutes_played": 320, "points_scored": 25},
+    {"id": 5, "name": "Christopher Davis", "team": "Miami Heat", "minutes_played": 290, "points_scored": 22},
+    {"id": 6, "name": "Jessica Wilson", "team": "Houston Rockets", "minutes_played": 270, "points_scored": 19},
+    {"id": 7, "name": "Matthew Moore", "team": "Toronto Raptors", "minutes_played": 310, "points_scored": 24},
+    {"id": 8, "name": "Olivia Taylor", "team": "Philadelphia 76ers", "minutes_played": 260, "points_scored": 16},
+    {"id": 9, "name": "Daniel Anderson", "team": "San Antonio Spurs", "minutes_played": 330, "points_scored": 21},
+    {"id": 10, "name": "Sophia White", "team": "Denver Nuggets", "minutes_played": 280, "points_scored": 17}
+]
