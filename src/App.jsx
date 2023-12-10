@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { splitData, formatDataMatrix, findInvalidRows } from "./utils/dataUtils";
 import FileInput from "./components/FileInput/FileInput";
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
+import Logo from "../public/basketball-ball.svg"
 import "./App.css";
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
   return (
       <div className="App">
         <header className="app__header">
-          <div className="header__logo"><img src="../public/basketball-ball.svg" alt="logo" /></div>
+          <div className="header__logo"><img src={Logo} alt="logo" /></div>
           <FileInput onChange={handleFileUpload} />
           <h1>Basketball Statistic</h1>
         </header>
