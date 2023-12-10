@@ -1,4 +1,9 @@
-function MostPointsScoredAllGameTable({ data }) {
+import { useLocation } from "react-router-dom";
+
+function MostPointsScoredAllGameTable() {
+    const location = useLocation();
+    const data = location.state["data"];
+
     const sortedData = data.sort((a, b) => {
         return b[3] - a[3];
     });

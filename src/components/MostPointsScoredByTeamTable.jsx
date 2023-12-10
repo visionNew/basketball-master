@@ -1,4 +1,9 @@
-function MostPointsScoredByTeamTable({ data }) {
+import { useLocation } from "react-router-dom";
+
+function MostPointsScoredByTeamTable() {
+    const location = useLocation();
+    const data = location.state["data"];
+
     const teamsData = data.reduce((prev, next) => {
         const [, team, , points] = next;
         if (prev[team]) {

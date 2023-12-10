@@ -1,4 +1,9 @@
-function MostPointsScoredByTimePlayedTable({ data }) {
+import { useLocation } from "react-router-dom";
+
+function MostPointsScoredByTimePlayedTable() {
+    const location = useLocation();
+    const data = location.state["data"];
+
     const dataModified = data.map((row) => {
         row.push(row[3] / row[2]);
         return row;

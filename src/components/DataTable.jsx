@@ -1,5 +1,8 @@
-/* eslint-disable react/prop-types */
-function DataTable({ data }) {
+import { useLocation } from "react-router-dom";
+
+function DataTable() {
+    const location = useLocation();
+    const data = location.state["data"];
     return (
         <>
             <h2>General Statistic</h2>

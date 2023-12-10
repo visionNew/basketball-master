@@ -1,5 +1,10 @@
-function BestPlayerByTeamTable({ data }) {
-  const bestPlayersMap = data.reduce((prev, player) => {
+import { useLocation } from "react-router-dom";
+
+function BestPlayerByTeamTable() {
+    const location = useLocation();
+    const data = location.state["data"];
+    
+    const bestPlayersMap = data.reduce((prev, player) => {
     const [playerName, team, , pointsScored] = player
     if (!prev[team] || +pointsScored > prev[team].pointsScored) {
       prev[team] = { playerName, pointsScored: +pointsScored };

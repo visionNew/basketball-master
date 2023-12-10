@@ -5,7 +5,7 @@ function ErrorDisplay({ errors }) {
     return (
         <div className="error__display">
             {errors.map((error, index) => (
-                <p key={index}>Data on row <span>`{error}`</span> is invalid</p>
+                <p key={index}>Data on row <span>{error}</span> is invalid</p>
             ))}
         </div>
     );
