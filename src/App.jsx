@@ -2,14 +2,9 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { splitData, formatDataMatrix, findInvalidRows } from "./utils/utils";
 import "./App.css";
-// import DataTable from "./components/DataTable";
-// import MostPointsScoredTable from './components/MostPointsScoredTable';
-// import MostPointsScoredByTimePlayedTable from './components/MostPointsScoredByTimePlayedTable';
-// import MostPointsScoredByTeamTable from "./components/MostPointsScoredByTeamTable";
-// import BestPlayerByTeamTable from "./components/BestPlayerByTeamTable";
 import FileInput from "./components/FileInput/FileInput";
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
-// import MostPointsScoredAllGameTable from './components/MostPointsScoredAllGameTable';
+
 
 
 function App() {
