@@ -6,6 +6,7 @@ import MostPointsScoredByTeamTable from "./components/MostPointsScoredByTeamTabl
 import MostPointsScoredTable from './components/MostPointsScoredTable';
 import MostPointsScoredByTimePlayedTable from './components/MostPointsScoredByTimePlayedTable';
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
+import FileInput from "./components/FileInput/FileInput";
 
 function App() {
   const [data, setData] = useState([]);
@@ -36,7 +37,7 @@ function App() {
   return (
       <div className="App">
         <h1>Basketball Statistic</h1>
-        <input type="file" onChange={handleFileUpload} />
+        <FileInput onChange={handleFileUpload} />
         {!!errors.length && <ErrorDisplay errors={errors} />}
         {!!data.length && (
           <>
