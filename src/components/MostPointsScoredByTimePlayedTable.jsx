@@ -1,5 +1,12 @@
-/* eslint-disable react/prop-types */
-function MostPointsScoredByTimePlayedTable( {data} ) {
+function MostPointsScoredByTimePlayedTable({ data }) {
+    const dataModified = data.map((row) => {
+        row.push(row[3] / row[2]);
+        return row;
+    });
+
+    const sortedData = dataModified.sort((a, b) => {
+        return b[4] - a[4];
+    });
 
     return (
         <>
@@ -19,7 +26,7 @@ function MostPointsScoredByTimePlayedTable( {data} ) {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((row, index) => {
+                        {sortedData.map((row, index) => {
                             return (
                                 <tr key={index}>
                                     <td>{index + 1}.</td>

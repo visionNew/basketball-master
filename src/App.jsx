@@ -2,11 +2,14 @@ import { useState } from "react";
 import { splitData, formatDataMatrix, findInvalidRows } from "./utils/utils";
 import "./App.css";
 import DataTable from "./components/DataTable";
-import MostPointsScoredByTeamTable from "./components/MostPointsScoredByTeamTable";
 import MostPointsScoredTable from './components/MostPointsScoredTable';
 import MostPointsScoredByTimePlayedTable from './components/MostPointsScoredByTimePlayedTable';
-import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
+import MostPointsScoredByTeamTable from "./components/MostPointsScoredByTeamTable";
+import BestPlayerByTeamTable from "./components/BestPlayerByTeamTable";
 import FileInput from "./components/FileInput/FileInput";
+import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
+import MostPointsScoredAllGameTable from './components/MostPointsScoredAllGameTable';
+
 
 function App() {
   const [data, setData] = useState([]);
@@ -43,8 +46,10 @@ function App() {
           <>
             <DataTable data={data} />
             <MostPointsScoredTable data={data} />
+            <MostPointsScoredAllGameTable data={data} />
             <MostPointsScoredByTimePlayedTable data={data} />
             <MostPointsScoredByTeamTable data={data} />
+            <BestPlayerByTeamTable data={data} />
           </>
         )}
       </div>

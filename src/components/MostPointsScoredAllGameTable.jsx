@@ -1,4 +1,4 @@
-function MostPointsScoredTable({ data }) {
+function MostPointsScoredAllGameTable({ data }) {
     const sortedData = data.sort((a, b) => {
         return b[3] - a[3];
     });
@@ -6,7 +6,7 @@ function MostPointsScoredTable({ data }) {
     return (
         <>
             <h2>Most Points Scored</h2>
-            <p>Single Game</p>
+            <p>All Game</p>
 
             <div className="card">
                 <table>
@@ -38,4 +38,4 @@ function MostPointsScoredTable({ data }) {
     );
 }
 
-export default MostPointsScoredTable;
+export default MostPointsScoredAllGameTable;
