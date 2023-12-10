@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import Table from './Table/Table';
 import * as dataManipulation from '../utils/sortUtils';
 
 function MostPointsScoredByTeamTable() {
@@ -7,36 +8,16 @@ function MostPointsScoredByTeamTable() {
 
     const sortedData = dataManipulation.sortByTeamPoints(data);
 
+    const tableProps = {
+        title: 'Teams Points Scored Ranking',
+        subtitle: 'Single Game',
+        headers: ['Placement', 'Team', 'Points Scored'],
+        includeIndex: true,
+        sortable: true,
+        data: sortedData,
+    };
 
-    return (
-        <>
-        <h2>Teams Points Scored Ranking</h2>
-        <p>Single Game</p>
-
-        <div className="card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Placement</th>
-                        <th>Team</th>
-                        <th>Points Scored</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedData.map((row, index) => {
-                    return (
-                        <tr key={index}>
-                            <td>{index + 1}.</td>
-                            <td>{row[0]}</td>
-                            <td>{row[1]}</td>
-                        </tr>
-                    );
-                    })}
-                </tbody>
-            </table>
-        </div>
-        </>
-    );
+    return <Table {...tableProps} />;
 }
 
 export default MostPointsScoredByTeamTable;

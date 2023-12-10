@@ -10,9 +10,10 @@ function DataTable() {
         headers: ['Player Name', 'Team', 'Time Played(s)', 'Points Scored'],
         includeIndex: false,
         sortable: false,
+        data: data,
     };
 
-    return <Table {...table} data={data} />;
+    return <Table {...table} />;
 }
 
 export default DataTable;
