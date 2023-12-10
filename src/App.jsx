@@ -5,8 +5,6 @@ import "./App.css";
 import FileInput from "./components/FileInput/FileInput";
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
 
-
-
 function App() {
   const [data, setData] = useState([]);
   const [errors, setErrors] = useState([]);

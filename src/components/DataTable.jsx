@@ -1,38 +1,15 @@
-import { useLocation } from "react-router-dom";
+import Table from "./Table/Table";
 
 function DataTable() {
-    const location = useLocation();
-    const data = location.state["data"];
-    return (
-        <>
-            <h2>General Statistic</h2>
+const table = {
+    title: 'General Statistic',
+    headers: ['Player Name', 'Team', 'Time Played(s)', 'Points Scored'],
+    includeIndex: false,
+    sortable: false,
+};
 
-            <div className="card">
-                <table>
-                    <thead >
-                        <tr>
-                            <th>Player Name</th>
-                            <th>Team</th>
-                            <th>Time Played(s)</th>
-                            <th>Points Scored</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((row, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td>{row[0]}</td>
-                                    <td>{row[1]}</td>
-                                    <td>{row[2]}</td>
-                                    <td>{row[3]}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            </div>
-        </>
-    );
+
+    return <Table table={table} />;
 }
 
 export default DataTable;

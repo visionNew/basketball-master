@@ -1,17 +1,12 @@
 import { useLocation } from "react-router-dom";
+import * as dataManipulation from '../utils/sortUtils';
 
 function MostPointsScoredByTimePlayedTable() {
     const location = useLocation();
     const data = location.state["data"];
 
-    const dataModified = data.map((row) => {
-        row.push(row[3] / row[2]);
-        return row;
-    });
-
-    const sortedData = dataModified.sort((a, b) => {
-        return b[4] - a[4];
-    });
+    const dataModified = dataManipulation.calculateRatio(data);
+    const sortedData = dataManipulation.sortByTime(dataModified);
 
     return (
         <>
@@ -51,3 +46,4 @@ function MostPointsScoredByTimePlayedTable() {
 }
 
 export default MostPointsScoredByTimePlayedTable;
+

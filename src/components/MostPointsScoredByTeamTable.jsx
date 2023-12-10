@@ -1,23 +1,11 @@
 import { useLocation } from "react-router-dom";
+import * as dataManipulation from '../utils/sortUtils';
 
 function MostPointsScoredByTeamTable() {
     const location = useLocation();
     const data = location.state["data"];
 
-    const teamsData = data.reduce((prev, next) => {
-        const [, team, , points] = next;
-        if (prev[team]) {
-            prev[team] = prev[team] + +points;
-        } else {
-            prev[team] = +points;
-        }
-
-        return prev;
-    }, {});
-
-    const sortedData = Object.entries(teamsData).sort((a, b) => {
-        return b[1] - a[1];
-    });
+    const sortedData = dataManipulation.sortByTeamPoints(data);
 
 
     return (

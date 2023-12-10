@@ -1,21 +1,11 @@
 import { useLocation } from "react-router-dom";
+import * as dataManipulation from '../utils/sortUtils';
 
 function BestPlayerByTeamTable() {
     const location = useLocation();
     const data = location.state["data"];
     
-    const bestPlayersMap = data.reduce((prev, player) => {
-    const [playerName, team, , pointsScored] = player
-    if (!prev[team] || +pointsScored > prev[team].pointsScored) {
-      prev[team] = { playerName, pointsScored: +pointsScored };
-    }
-    return prev;
-  }, {});
-
-  const sortedData = Object.entries(bestPlayersMap)
-    .map(([team, playerData]) => [team, ...Object.values(playerData)]).sort((a, b) => {
-      return b[2] - a[2]
-    });
+    const sortedData = dataManipulation.sortByBestPlayersPoints(data);
     
   return (
     <>
@@ -48,3 +38,17 @@ function BestPlayerByTeamTable() {
 }
 
 export default BestPlayerByTeamTable;
+
+
+// const bestPlayersMap = data.reduce((prev, player) => {
+//   const [playerName, team, , pointsScored] = player
+//   if (!prev[team] || +pointsScored > prev[team].pointsScored) {
+//     prev[team] = { playerName, pointsScored: +pointsScored };
+//   }
+//   return prev;
+// }, {});
+
+// const sortedData = Object.entries(bestPlayersMap)
+//   .map(([team, playerData]) => [team, ...Object.values(playerData)]).sort((a, b) => {
+//     return b[2] - a[2]
+//   });
