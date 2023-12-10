@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { splitData, formatDataMatrix, findInvalidRows } from "./utils/utils";
+import { splitData, formatDataMatrix, findInvalidRows } from "./utils/dataUtils";
 import "./App.css";
 import FileInput from "./components/FileInput/FileInput";
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';

@@ -6,11 +6,7 @@ function calculateRatio(data) {
     return data.map((row) => {
         row.push(row[3] / row[2]);
         return row;
-    });
-}
-
-function sortByTime(data) {
-    return data.sort((a, b) => b[4] - a[4]);
+    }).sort((a, b) => b[4] - a[4]);
 }
 
 
@@ -49,4 +45,4 @@ function sortByBestPlayersPoints(data) {
         .sort((a, b) => b[2] - a[2]);
 }
 
-export { sortByPoints, calculateRatio, sortByTime, calculateTeamPoints, sortByTeamPoints, findBestPlayersByTeam, sortByBestPlayersPoints };
+export { sortByPoints, calculateRatio, calculateTeamPoints, sortByTeamPoints, findBestPlayersByTeam, sortByBestPlayersPoints };

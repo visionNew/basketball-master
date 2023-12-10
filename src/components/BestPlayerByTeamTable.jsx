@@ -38,17 +38,3 @@ function BestPlayerByTeamTable() {
 }
 
 export default BestPlayerByTeamTable;
-
-
-// const bestPlayersMap = data.reduce((prev, player) => {
-//   const [playerName, team, , pointsScored] = player
-//   if (!prev[team] || +pointsScored > prev[team].pointsScored) {
-//     prev[team] = { playerName, pointsScored: +pointsScored };
-//   }
-//   return prev;
-// }, {});
-
-// const sortedData = Object.entries(bestPlayersMap)
-//   .map(([team, playerData]) => [team, ...Object.values(playerData)]).sort((a, b) => {
-//     return b[2] - a[2]
-//   });

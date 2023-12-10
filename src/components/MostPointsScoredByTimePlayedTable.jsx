@@ -5,8 +5,7 @@ function MostPointsScoredByTimePlayedTable() {
     const location = useLocation();
     const data = location.state["data"];
 
-    const dataModified = dataManipulation.calculateRatio(data);
-    const sortedData = dataManipulation.sortByTime(dataModified);
+    const sortedData = dataManipulation.calculateRatio(data);
 
     return (
         <>
