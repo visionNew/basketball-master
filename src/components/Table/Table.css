@@ -1,5 +1,5 @@
 #root {
-    --card-height: 60vh;
+    --card-height: 70vh;
     --card-width: calc(var(--card-height) / 0.8);
 }
 

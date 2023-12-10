@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { splitData, formatDataMatrix, findInvalidRows } from "./utils/dataUtils";
-import "./App.css";
 import FileInput from "./components/FileInput/FileInput";
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
+import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
@@ -37,7 +37,7 @@ function App() {
         <FileInput onChange={handleFileUpload} />
         {!!errors.length && <ErrorDisplay errors={errors} />}
 
-        <nav className="table__nav">
+        <nav>
           <NavLink to="/">Home page</NavLink>
           <NavLink to={"/overall-stats"} state={{ data: data }}>
               Overall Stats
@@ -58,7 +58,6 @@ function App() {
               Best Player
           </NavLink>
         </nav>
-
 
         {!!data.length && <Outlet />}
       </div>
