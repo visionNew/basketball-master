@@ -33,8 +33,11 @@ function App() {
     
   return (
       <div className="App">
-        <h1>Basketball Statistic</h1>
-        <FileInput onChange={handleFileUpload} />
+        <header className="app__header">
+          <div className="header__logo"><img src="../public/basketball-ball.svg" alt="logo" /></div>
+          <FileInput onChange={handleFileUpload} />
+          <h1>Basketball Statistic</h1>
+        </header>
         {!!errors.length && <ErrorDisplay errors={errors} />}
 
         <nav>
